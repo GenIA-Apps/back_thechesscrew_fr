@@ -31,6 +31,15 @@ app.get('/api/data', (req, res) => {
   });
 });
 
+// Nawres endpoint ❤️
+app.get('/api/nawres', (req, res) => {
+  res.json({ 
+    message: 'coucou nawres, je t\'aime bcp ! <3',
+    timestamp: new Date().toISOString(),
+    from: 'backend'
+  });
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
