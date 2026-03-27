@@ -46,9 +46,11 @@ app.get('/api/nawres', (req, res) => {
 // Test endpoint with counter
 app.get('/api/test', (req, res) => {
   testCounter++;
+  const parity = testCounter % 2 === 0 ? 'pair' : 'impair';
   res.json({
     message: 'Test endpoint called',
     counter: testCounter,
+    parity: parity,
     timestamp: new Date().toISOString()
   });
 });
