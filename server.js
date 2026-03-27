@@ -7,6 +7,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Application constants
+let testCounter = 0;
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -37,6 +40,16 @@ app.get('/api/nawres', (req, res) => {
     message: 'coucou nawres, je t\'aime bcp ! <3',
     timestamp: new Date().toISOString(),
     from: 'backend'
+  });
+});
+
+// Test endpoint with counter
+app.get('/api/test', (req, res) => {
+  testCounter++;
+  res.json({
+    message: 'Test endpoint called',
+    counter: testCounter,
+    timestamp: new Date().toISOString()
   });
 });
 
